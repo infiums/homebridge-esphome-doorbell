@@ -1,28 +1,20 @@
 # Homebridge ESPHome Doorbell
 
-This is a Homebridge platform plugin to be used with the [$2 doorbell from Frenck](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/).
+This is a Homebridge platform plugin to be used with the ESP Domofon.
 It is a work in progress.
 
 ## Getting Started
 
 ```json
 {
-    "platform": "esphome-doorbell",
+    "platform": "esphome-domofon",
     "devices": [
         {
-            "host": "doorbell.local",
-            "password": "Passw0rd!",
-            "name": "Doorbell",
+            "host": "domofon.local",
+            "password": "",
+            "name": "Domofon",
             "port": 9001
         }
     ]
 }
 ```
-
-Only the `host` key is mandatory under devices. As password `''` is assumed aka no password and the default
-port number 80 is also wired into the plugin. You can add, in theory, as many doorbells as you want to
-that array, as long as you provide a unique name for each.
-
-## Troubleshooting
-
-If not using HomeAssistant, the `api` line in the `doorbell.yaml` should not be present otherwise the device will restart every 5 minutes.
