@@ -75,8 +75,8 @@ export class DoorbellAccessory {
 
     const deviceUrl = `http://${this.accessory.context.device.host}:${this.accessory.context.device.port}`;
     const requestUrl = isMuting
-      ? `${deviceUrl}/switch/doorbell_chime_active/turn_off`
-      : `${deviceUrl}/switch/doorbell_chime_active/turn_on`;
+      ? `${deviceUrl}/switch/domofon_automatically_open/turn_off`
+      : `${deviceUrl}/switch/domofon_automatically_open/turn_on`;
 
     fetch(requestUrl, { method: 'POST' })
       .then(() => {
@@ -91,10 +91,10 @@ export class DoorbellAccessory {
   }
 
   private isDoorbellButton(eventId: string): boolean {
-    return eventId === 'binary_sensor-doorbell_button';
+    return eventId === 'binary_sensor-domofon_incoming_call';
   }
 
   private isDoorbellChimeActiveSwitch(eventId: string): boolean {
-    return eventId === 'switch-doorbell_chime_active';
+    return eventId === 'switch-domofon_automatically_open';
   }
 }
